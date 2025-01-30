@@ -289,7 +289,10 @@ const handlePlantsClick = (e) => {
                             <img className="product-image" src={plant.image} alt={plant.name} />
                             <div className="product-price">{plant.cost}</div>
                             <div>{plant.description}</div>
-                            <button  className="product-button" onClick={() => handleAddToCart(plant)}>Add to Cart</button>
+                            <button  
+                                className={`product-button ${addedToCart[plant.name] ? 'added-to-cart' : ''}`}
+                                onClick={() => handleAddToCart(plant)}
+                                disabled={addedToCart[plant.name]}>Add to Cart</button>
                         </div>
                         ))}
                     </div>
