@@ -257,6 +257,15 @@ const handlePlantsClick = (e) => {
         [product.name]: true, // Set the product name as key and value as true to indicate it's added to cart
       }));
   }
+  const handleRemoveFromCart = (product) => {
+    //console.log(`handleRemoveFromCart ${product.name}`)
+    setAddedToCart((prevState) => ({
+        ...prevState,
+        [product.name]: false, // Set the product name as key and value as false to indicate it was removed from thecart
+      }));
+
+  }
+
     return (
         <div>
              <div className="navbar" style={styleObj}>
@@ -301,7 +310,7 @@ const handlePlantsClick = (e) => {
 
         </div>
  ) :  (
-    <CartItem onContinueShopping={handleContinueShopping}/>
+    <CartItem onContinueShopping={handleContinueShopping} onRemovingItem={handleRemoveFromCart}/>
 )}
     </div>
     );
