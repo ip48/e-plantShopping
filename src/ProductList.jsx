@@ -9,6 +9,8 @@ function ProductList() {
     const [showPlants, setShowPlants] = useState(false); // State to control the visibility of the About Us page
     const [addedToCart, setAddedToCart] = useState({});
     const dispatch = useDispatch();
+    const totalQuantity = useSelector(state => state.cart.totalQuantity);
+
     const plantsArray = [
         {
             category: "Air Purifying Plants",
@@ -265,6 +267,7 @@ const handlePlantsClick = (e) => {
       }));
 
   }
+  
 
     return (
         <div>
@@ -286,7 +289,7 @@ const handlePlantsClick = (e) => {
                 <div> 
                     <a href="#" onClick={(e) => handleCartClick(e)} style={styleA}>
                         <h1 className='cart'>
-                            <span className="cart_quantity_count">11</span>
+                            <span className="cart_quantity_count">{totalQuantity}</span>
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" id="IconChangeColor" height="68" width="68">
                                 <rect width="156" height="156" fill="none"></rect>
                                 <circle cx="80" cy="216" r="12"></circle>
